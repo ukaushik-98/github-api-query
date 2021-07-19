@@ -13,8 +13,8 @@ const launchQuery = (path) => {
     return new Promise((resolve,reject) => {
         var req = https.get(headers, (res) => {
             if (res.statusCode < 200 || res.statusCode >= 300) {
-                console.log(res.statusCode)
-                return reject(new Error('statusCode=' + res.statusCode));
+                console.log(res);
+                return reject('statusCode=' + res.statusCode);
             }
             let data = '';
             res.on('data', (chunk) => data += chunk);
